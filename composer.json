@@ -1,0 +1,10 @@
+{
+    "name": "wenom/car-parser",
+    "description": "car parser",
+    "type": "project",
+    "require": {
+      "guzzlehttp/guzzle": "*",
+      "sunra/php-simple-html-dom-parser": "1.5.2",
+      "phpmailer/phpmailer": "~5.2"
+    }
+}
