@@ -10,9 +10,13 @@ $settings = [
 ];
 
 $sites = [
-    'av' => [
-        'filter' => new \CarParser\Filters\AvFilter($settings),
-        'parser' => new \CarParser\Parsers\AvParser(),
+//    'av' => [
+//        'filter' => new \CarParser\Filters\AvFilter($settings),
+//        'parser' => new \CarParser\Parsers\AvParser(),
+//    ],
+    'ao' => [
+        'filter' => new \CarParser\Filters\AoFilter($settings),
+        'parser' => new \CarParser\Parsers\AoParser(),
     ]
 ];
 
@@ -29,8 +33,8 @@ try {
         foreach ($items as $item) {
             if (!in_array($item['id'], $dbData)) {
                 print('New car at ' . $key . PHP_EOL);
-                $mailer->send('New Car at ' . strtoupper($key), $item['link']);
-                $db->write($key, $item['id']);
+//                $mailer->send('New Car at ' . strtoupper($key), $item['link']);
+//                $db->write($key, $item['id']);
             }
         }
     }

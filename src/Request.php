@@ -18,7 +18,7 @@ class Request
 
     public function exec(Filter $filter, Parser $parser)
     {
-        $res = $this->client->request('GET', $filter->getRequestUrl());
+        $res = $this->client->request($filter->getMethod(), $filter->getRequestUrl());
 
         if ($res->getStatusCode() !== 200) {
             throw new \Exception(sprintf('Response code %d, site: %s', $res->getStatusCode(), $filter->getRequestUrl()));

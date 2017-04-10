@@ -9,6 +9,8 @@ abstract class Filter
     protected $rawData;
     protected $filter;
 
+    protected $method = "GET";
+
     /**
      * @param array $rawData
      */
@@ -58,5 +60,10 @@ abstract class Filter
     public function getRequestUrl()
     {
         return $this->uri . '?' . http_build_query($this->getFilter());
+    }
+
+    public function getMethod()
+    {
+        return $this->method;
     }
 }
