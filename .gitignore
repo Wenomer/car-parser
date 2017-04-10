@@ -4,3 +4,5 @@ composer-test.lock
 vendor/
 .idea
 .DS_STORE
+settings.ini
+db

@@ -1,5 +1,6 @@
 <?php
-namespace Car;
+
+namespace CarParser;
 
 abstract class Filter
 {

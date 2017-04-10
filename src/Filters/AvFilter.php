@@ -1,8 +1,8 @@
 <?php
 
-namespace Car\Filters;
+namespace CarParser\Filters;
 
-use Car\Filter;
+use CarParser\Filter;
 
 class AvFilter extends Filter
 {

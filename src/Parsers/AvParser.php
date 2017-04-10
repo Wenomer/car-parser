@@ -1,8 +1,8 @@
 <?php
 
-namespace Car\Parsers;
+namespace CarParser\Parsers;
 
-use Car\Parser;
+use CarParser\Parser;
 use Sunra\PhpSimple\HtmlDomParser;
 
 class AvParser extends Parser
@@ -15,7 +15,7 @@ class AvParser extends Parser
         foreach ($dom->find('.listing .listing-item') as $elem) {
             $items[] = [
                 'id' => $elem->find('.listing-item-body .bookmark')[0]->{'data-id-ids'},
-                'href' => $elem->find('.listing-item-image a')[0]->href,
+                'link' => $elem->find('.listing-item-image a')[0]->href,
             ];
         }
 
