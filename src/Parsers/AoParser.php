@@ -2,25 +2,20 @@
 
 namespace CarParser\Parsers;
 
-use CarParser\Parser;
-use Sunra\PhpSimple\HtmlDomParser;
-
-class AoParser extends Parser
+class AoParser implements ParserInterface
 {
     public function parse($data)
     {
         $items = [];
-        var_dump($data);
-        die;
-        $dom = HtmlDomParser::str_get_html($data);
+        $data = json_decode($data);
 
-        foreach ($dom->find('.listing .listing-item') as $elem) {
+        foreach ($data->result->advertisements as $key => $elem) {
             $items[] = [
-                'id' => $elem->find('.listing-item-body .bookmark')[0]->{'data-id-ids'},
-                'link' => $elem->find('.listing-item-image a')[0]->href,
+                'id' => $elem->id,
+                'link' => 'http://ab.onliner.by/car/' . $elem->id
             ];
         }
 
-//        return $items;
+        return $items;
     }
 }

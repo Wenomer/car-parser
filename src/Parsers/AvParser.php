@@ -2,10 +2,9 @@
 
 namespace CarParser\Parsers;
 
-use CarParser\Parser;
 use Sunra\PhpSimple\HtmlDomParser;
 
-class AvParser extends Parser
+class AvParser implements ParserInterface
 {
     public function parse($data)
     {

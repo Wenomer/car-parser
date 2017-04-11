@@ -31,12 +31,8 @@ class DB
         file_put_contents($this->dbpath, serialize($this->data));
     }
 
-    public function getData($group = null)
+    public function getData($group)
     {
-        if (is_null($group)) {
-            return $this->data;
-        }
-
         if (!isset($this->data[$group])) {
             return [];
         }

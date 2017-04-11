@@ -16,14 +16,15 @@ class Request
         $this->client = new Client();
     }
 
-    public function exec(Filter $filter, Parser $parser)
+    public function exec($settings)
     {
-        $res = $this->client->request($filter->getMethod(), $filter->getRequestUrl());
+        $params = isset($settings['params']) ? $settings['params'] : [];
+        $res = $this->client->request($settings['method'], $settings['url'], $params);
 
         if ($res->getStatusCode() !== 200) {
-            throw new \Exception(sprintf('Response code %d, site: %s', $res->getStatusCode(), $filter->getRequestUrl()));
+            throw new \Exception(sprintf('Response code %d, site: %s', $res->getStatusCode(), $settings['url']));
         }
 
-        return $parser->parse($res->getBody()->read(100000000));
+        return $res->getBody()->getContents();
     }
 }
